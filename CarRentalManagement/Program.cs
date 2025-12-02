@@ -25,8 +25,8 @@ builder.Services.AddAuthentication(options =>
     options.DefaultSignInScheme = IdentityConstants.ExternalScheme;
 })
 .AddIdentityCookies();
-builder.Services.AddIdentityCore<CarRentalManagementUser>(options =>
-options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddIdentityCore<CarRentalManagementUser>(options =>options.SignIn.RequireConfirmedAccount = true)
+.AddRoles<IdentityRole>()
 .AddEntityFrameworkStores<CarRentalManagementContext>()
 .AddSignInManager()
 .AddDefaultTokenProviders();
